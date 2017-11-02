@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blur Admin</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+
+  <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css({.tmp/serve,src}) styles/auth.css -->
+  <!-- inject:css -->
+  <!-- css files will be automatically insert here -->
+  <!-- endinject -->
+  <!-- endbuild -->
+</head>
+<body>
+<main class="auth-main">
+  <div class="auth-block">
+    <h1>Sign up to Gem4Me</h1>
+    <a href="auth.html" class="auth-link">Already have an account? Sign in!</a>
+
+    <form class="form-horizontal" id="formReg" onsubmit="return false;">
+
+      <div class="form-group">
+        <label for="sponsor" class="col-sm-2 control-label">Sponsor *</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="sponsor" placeholder="use only a-z, 0-9, -(not for start or end sponsor), _(not for start or end sponsor)" value="testareg1">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username *</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="username" placeholder="use only a-z, 0-9, -(not for start or end username), _(not for start or end username)">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email *</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="email" placeholder="use only a-z, 0-9, -(not for start or end email), _(not for start or end email)">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">First Name *</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" placeholder="use any letters and numbers">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="secondName" class="col-sm-2 control-label">Second Name *</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="secondName" placeholder="use any letters and numbers">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone" class="col-sm-2 control-label">Phone *</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="phone" placeholder="+<country code><phone number>. For example: +71234567890">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country" class="col-sm-2 control-label">Country *</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="country" placeholder="Choose your country code" value="ru">
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password *</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="finPassword" class="col-sm-2 control-label">Fin Password *</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="finPassword" placeholder="">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="skype" class="col-sm-2 control-label">Skype</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="skype" placeholder="use only a-z, 0-9, -, _">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" id="btnReg" class="btn btn-default btn-auth">Sign up</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <span id="errorInfo"></span>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</main>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+var token = getCookie("token");
+
+if( token != "" && token != undefined && token != null && token != NaN ) {
+  //есть уже сохраненная сессия авторизации
+  // переходим на главную
+  window.location.href = "/profile.html";
+
+}
+
+
+$("#formReg").on("submit", function(){
+
+  var sponsor = $("#sponsor").val();
+  var username = $("#username").val();
+  var email = $("#email").val();
+  var firstName = $("#firstName").val();
+  var secondName = $("#secondName").val();
+  var password = $("#password").val();
+  var finPassword = $("#finPassword").val();
+  var country = $("#country").val();
+  var phone = $("#phone").val();
+  var skype = $("#skype").val();
+
+
+  // to lower case
+  sponsor = sponsor.toLowerCase();
+  username = username.toLowerCase();
+  email = email.toLowerCase();
+  firstName = firstName.toLowerCase();
+  secondName = secondName.toLowerCase();
+  // password = password.toLowerCase();
+  // finPassword = finPassword.toLowerCase();
+  country = country.toLowerCase();
+  phone = phone.toLowerCase();
+  skype = skype.toLowerCase();
+
+  //validators:
+  // v1: only a-z, 0-9, _, - (- and - not in begin and not end)
+  // v2: phone
+  // v3: not null(for passwords)
+
+  if( !v1(sponsor) ) {
+    showInfo("Errors in sponsor field");
+    return;
+  }
+  if(!v1(username)) {
+    showInfo("Errors in username field");
+    return;
+  }
+  if(!validateEmail(email)) {
+    showInfo("Errors in email field");
+    return;
+  }
+  if(!v4(firstName)) {
+    showInfo("Errors in firstName field");
+    return;
+  }
+  if(!v4(secondName)) {
+    showInfo("Errors in secondName field");
+    return;
+  }
+  if(!v2(phone)) {
+    showInfo("Errors in phone field");
+    return;
+  }
+  if(!v3(password)) {
+    showInfo("Errors in password field");
+    return;
+  }
+  if(!v3(finPassword)) {
+    showInfo("Errors in finPassword field");
+    return;
+  }
+
+  // make for disabled
+  var form = document.getElementById("formReg");
+  var elements = form.elements;
+  for (var i = 0, len = elements.length; i < len; ++i) {
+      elements[i].readOnly = true;
+  }
+
+  $("#btnReg").attr("disabled","");
+
+  var clientData = {
+    "sponsor": sponsor,
+    "username": username,
+    "email": email,
+    "firstName": firstName,
+    "secondName": secondName,
+    "password": password,
+    "finPassword": finPassword,
+    "country": country,
+    "phone": phone,
+    "skype": skype
+  };
+
+  var clientDataStr = JSON.stringify(clientData);
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://207.154.204.86/user/",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "processData": false,
+    "data": clientDataStr
+  }
+
+  $.ajax(settings).done(function (response, textStatus, xhr) {
+    console.log(response, xhr);
+    //success
+    if(xhr.status == 200) {
+      //сохраняем токен
+      setCookie("token", response.token);
+      window.location.href = "/dashboard.html";
+      return;
+    }
+  })
+  .fail(function(xhr, textStatus, errInfo) {
+    if(xhr.status == 400) {
+      showInfo("Params error");
+      return;
+    }
+    if(xhr.status == 401) {
+      showInfo("Wrong password");
+      return;
+    }
+
+    if(xhr.status == 404) {
+      showInfo("User not found");
+      return;
+    }
+    if(xhr.status == 409) {
+      showInfo("User already exists");
+      return;
+    }
+
+    if(xhr.status == 500) {
+      showInfo("Server error");
+      return;
+    }
+  });
+
+
+  .always(function(){
+    // make enabled
+      var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+          elements[i].readOnly = false;
+        }
+      $("#btnReg").removeAttr("disabled","");
+  })
+  ;
+
+});
+
+
+//Utils
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+// v1: only a-z, 0-9, _, - (- and - not in begin and not end)
+function v1(str) {
+    var re = /^([a-z0-9])+([a-z0-9_\-_])+[{a-z0-9)]$/;
+    return re.test(str);
+}
+
+// v2: phone
+function v2(str) {
+    var re = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+    return re.test(str);
+}
+
+//v3: not null
+function v3(str) {
+  return str.length > 0 ? true : false;
+}
+
+// v4: only a-z, 0-9
+function v4(str) {
+    var re = /^([a-z0-9])+$/;
+    return re.test(str);
+}
+
+
+//cookies
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+
+function showInfo(data) {
+  $("#errorInfo").html(data);
+    setTimeout(function() {
+    $("#errorInfo").html("");
+  },3000);
+}
+
+</script>
+
+</body>
+</html>
