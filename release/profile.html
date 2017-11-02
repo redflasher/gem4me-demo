@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blur Admin</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+
+  <link rel="stylesheet" href="styles/vendor-dddc8eebb5.css">
+
+  <link rel="stylesheet" href="styles/auth-e6695cfd9b.css">
+</head>
+<body>
+<main class="auth-main">
+  <div class="auth-block">
+    <h1>Your profile</h1>
+
+    <form class="form-horizontal" id="formAuth" onsubmit="return false;">
+      
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="username" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sponsor" class="col-sm-2 control-label">Sponsor</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="sponsor" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="email" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="secondName" class="col-sm-2 control-label">Second Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="secondName" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="birthday" class="col-sm-2 control-label">Birthday</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="birthday" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber" class="col-sm-2 control-label">Phone Number</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="phoneNumber" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber2" class="col-sm-2 control-label">Phone Number2</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="phoneNumber2" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="skype" class="col-sm-2 control-label">Skype</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="skype" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="country" class="col-sm-2 control-label">Country</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="country" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="state" class="col-sm-2 control-label">State</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="state" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="city" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="address" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="zipCode" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="site" class="col-sm-2 control-label">Site</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="site" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="odnoklassniki" class="col-sm-2 control-label">Odnoklassniki</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="odnoklassniki" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vk" class="col-sm-2 control-label">Vk</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="vk" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fb" class="col-sm-2 control-label">Facebook</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="fb" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="youtube" class="col-sm-2 control-label">Youtube</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="youtube" placeholder="">
+        </div>
+      </div>
+
+
+    <div class="form-group">
+      <label for="autoExtensionBS" class="col-sm-2 control-label">Auto Extension BS</label>
+      <div class="col-sm-10">
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="autoExtensionBS" id="inlineRadio1" value="0">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="autoExtensionBS" id="inlineRadio2" value="1">
+              <span>Yes</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="showMobile" class="col-sm-2 control-label">Show Mobile</label>
+      <div class="col-sm-10">
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="showMobile" id="inlineRadio1" value="0">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="showMobile" id="inlineRadio2" value="1">
+              <span>Yes</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="showEmail" class="col-sm-2 control-label">Show Email</label>
+      <div class="col-sm-10">
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="showEmail" id="inlineRadio1" value="0">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="showEmail" id="inlineRadio2" value="1">
+              <span>Yes</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="showName" class="col-sm-2 control-label">Show Name</label>
+      <div class="col-sm-10">
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="showName" id="inlineRadio1" value="0">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="showName" id="inlineRadio2" value="1">
+              <span>Yes</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="deliveryEMail" class="col-sm-2 control-label">Delivery Email</label>
+      <div class="col-sm-10">
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="deliveryEMail" id="inlineRadio1" value="0">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="deliveryEMail" id="inlineRadio2" value="1">
+              <span>Yes</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="deliverySMS" class="col-sm-2 control-label">Delivery SMS</label>
+      <div class="col-sm-10">
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="deliverySMS" id="inlineRadio1" value="0">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input type="radio" name="deliverySMS" id="inlineRadio2" value="1">
+              <span>Yes</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" id="saveBtn" class="btn btn-default btn-auth">Save</button>
+      </div>
+    </div>
+
+
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <span id="errorInfo"></span>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</main>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+var token = getCookie("token");
+var form = document.getElementById("formAuth");
+
+if( token == "" || token == undefined || token == null || token == NaN ) {
+  //не авторизован
+  // переходим на страницу авторизации
+  window.location.href = "/auth.html";
+
+} else {
+
+  //юзер авторизован - получаем данные по токену
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://207.154.204.86/user/?token="+token,
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "processData": false
+  }
+
+  $.ajax(settings).done(function (response, textStatus, xhr) {
+    console.log(response, xhr);
+    //success
+    if(xhr.status == 200) {
+      //подставляем данные в формы
+
+      $("#username").val(response.username);
+      $("#sponsor").val(response.sponsor.username);
+      $("#email").val(response.email);
+      $("#firstName").val(response.firstName);
+      $("#secondName").val(response.secondName);
+
+
+      var bDay = response.birthday;
+      // console.log("bDay", bDay);
+      if(bDay != "") {
+        bDay = bDay.split("T00:00:00.000Z");
+        bDay = bDay[0];
+        // console.log("bDay . split", bDay);
+        $("#birthday").val(bDay);
+      }
+
+      // $("#birthday").val(response.birthday);
+      $("#phoneNumber").val(response.phoneNumber);
+      $("#phoneNumber2").val(response.phoneNumber2);
+      $("#skype").val(response.skype);
+      $("#country").val(response.country);
+      $("#state").val(response.state);
+      $("#city").val(response.city);
+      $("#address").val(response.address);
+      $("#zipCode").val(response.zipCode);
+      $("#site").val(response.links.site);
+      $("#odnoklassniki").val(response.links.odnoklassniki);
+      $("#vk").val(response.links.vk);
+      $("#fb").val(response.links.fb);
+      $("#youtube").val(response.links.youtube);
+      
+      $("input[name=autoExtensionBS][value=" + response.settings.autoExtensionBS + "]").attr('checked', 'checked');
+      
+      $("input[name=showMobile][value=" + response.settings.showMobile + "]").attr('checked', 'checked');
+
+      $("input[name=showEmail][value=" + response.settings.showEmail + "]").attr('checked', 'checked');
+
+      $("input[name=showName][value=" + response.settings.showName + "]").attr('checked', 'checked');
+
+      $("input[name=deliveryEMail][value=" + response.settings.deliveryEMail + "]").attr('checked', 'checked');
+
+      $("input[name=deliverySMS][value=" + response.settings.deliverySMS + "]").attr('checked', 'checked');
+
+
+      return;
+    }
+  })
+
+  .fail(function(xhr, textStatus, errInfo) {
+    if(xhr.status == 400) {
+      showInfo("Params error");
+      return;
+    }
+    if(xhr.status == 401) {
+      showInfo("Wrong password");
+      return;
+    }
+
+    if(xhr.status == 404) {
+      showInfo("User not found");
+      return;
+    }
+    if(xhr.status == 409) {
+      showInfo("User already exists");
+      return;
+    }
+
+    if(xhr.status == 500) {
+      showInfo("Server error");
+      return;
+    }
+  })
+
+  .always(function(){
+    // make enabled
+      var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+          elements[i].readOnly = false;
+        }
+      $("#saveBtn").removeAttr("disabled","");
+  })
+  ;
+
+
+}
+
+
+$("#formAuth").on("submit", function(){
+
+  var username = $("#username").val();
+  if(!v1(username)) {
+    showInfo("Error in username");
+    return;
+  }
+
+  var sponsor = $("#sponsor").val();
+  if(!v1(sponsor)) {
+    showInfo("Error in sponsor");
+    return;
+  }
+
+  var email = $("#email").val();
+  if(!validateEmail(email)) {
+    showInfo("Error in email");
+    return;
+  }
+
+  var firstName = $("#firstName").val();
+  if(!v4(firstName)) {
+    showInfo("Error in firstName");
+    return;
+  }
+
+  var secondName = $("#secondName").val();
+  if(!v4(secondName)) {
+    showInfo("Error in secondName");
+    return;
+  }
+
+  var birthday = $("#birthday").val();
+    // var birthdayArr = birthday.split("-");
+    // var bDate = new Date();
+
+    // bDate.setYear(birthdayArr[0]);
+    // bDate.setMonth(birthdayArr[1]);
+    // bDate.setDate(birthdayArr[2]);
+
+    // birthday = bDate.getDate();
+
+  var phoneNumber = $("#phoneNumber").val();
+  if(!v2(phoneNumber)) {
+    showInfo("Error in phoneNumber");
+    return;
+  }
+
+  var phoneNumber2 = $("#phoneNumber2").val();
+  if(!v2(phoneNumber2)) {
+    showInfo("Error in phoneNumber2");
+    return;
+  }
+
+  var skype = $("#skype").val();
+  if(!skypeTest(skype)) {
+    showInfo("Error in skype");
+    return;
+  }
+
+  var country = $("#country").val();
+  if(!countryTest(country)) {
+    showInfo("Error in country");
+    return;
+  }
+
+  var state = $("#state").val();
+  var city = $("#city").val();
+  var address = $("#address").val();
+  var zipCode = $("#zipCode").val();
+  var site = $("#site").val();
+  var odnoklassniki = $("#odnoklassniki").val();
+  var vk = $("#vk").val();
+  var fb = $("#fb").val();
+  var youtube = $("#youtube").val();
+
+  var autoExtensionBS = $("input[type='radio'][name='autoExtensionBS']:checked").val();
+
+  var showMobile = $("input[type='radio'][name='showMobile']:checked").val();
+
+  var showEmail = $("input[type='radio'][name='showEmail']:checked").val();
+
+  var showName = $("input[type='radio'][name='showName']:checked").val();
+
+  var deliveryEMail = $("input[type='radio'][name='deliveryEMail']:checked").val();
+
+  var deliverySMS = $("input[type='radio'][name='deliverySMS']:checked").val();
+
+  var clientData = {
+    "token":token,
+
+    "username":username,
+    "sponsor":sponsor,
+    "email":email,
+    "firstName":firstName,
+    "secondName":secondName,
+    "birthday":birthday,
+    "phoneNumber":phoneNumber,
+    "phoneNumber2":phoneNumber2,
+    "skype":skype,
+    "country":country,
+    "state":state,
+    "city":city,
+    "address":address,
+    "zipCode":zipCode,
+    "site":site,
+    "odnoklassniki":odnoklassniki,
+    "vk":vk,
+    "fb":fb,
+    "youtube":youtube,
+    "autoExtensionBS":autoExtensionBS,
+    "showMobile":showMobile,
+    "showEmail":showEmail,
+    "showName":showName,
+    "deliveryEMail":deliveryEMail,
+    "deliverySMS":deliverySMS
+  };
+
+  var clientDataStr = JSON.stringify(clientData);
+
+
+  // make for disabled
+  var elements = form.elements;
+  for (var i = 0, len = elements.length; i < len; ++i) {
+      elements[i].readOnly = true;
+  }
+  $("#saveBtn").attr("disabled","");
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://207.154.204.86/user/",
+    "method": "PUT",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "processData": false,
+    "data": clientDataStr
+  }
+
+  $.ajax(settings).done(function (response, textStatus, xhr) {
+    console.log(response, xhr);
+    //success
+    if(xhr.status == 200) {
+      //сохраняем токен
+      showInfo("Saved successfully.");
+      return;
+    }
+  })
+
+  .fail(function(xhr, textStatus, errInfo) {
+    if(xhr.status == 400) {
+      showInfo("Params error");
+      return;
+    }
+    if(xhr.status == 401) {
+      showInfo("Not auth");
+      window.location = "/auth.html";
+      return;
+    }
+
+    if(xhr.status == 404) {
+      showInfo("User not found");
+      return;
+    }
+    if(xhr.status == 409) {
+      showInfo("User already exists");
+      return;
+    }
+
+    if(xhr.status == 500) {
+      showInfo("Server error");
+      return;
+    }
+  })
+
+  .always(function(){
+    // make enabled
+      var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+          elements[i].readOnly = false;
+        }
+      $("#saveBtn").removeAttr("disabled","");
+  })
+  ;
+
+});
+
+
+
+
+//Utils
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+// v1: only a-z, 0-9, _, - (- and - not in begin and not end)
+function v1(str) {
+    var re = /^([a-z0-9])+([a-z0-9_\-_])+[{a-z0-9)]$/;
+    return re.test(str);
+}
+
+function countryTest(str) {
+    var re = /^[a-zA-Z]{2}$/;
+    return re.test(str);
+}
+
+// v2: phone
+function v2(str) {
+    var re = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+    return re.test(str);
+}
+
+//v3: not null
+function v3(str) {
+  return str.length > 0 ? true : false;
+}
+
+// v4: only a-z, 0-9
+function v4(str) {
+    var re = /^([a-z0-9])+$/;
+    return re.test(str);
+}
+
+// v4: only a-z, 0-9
+function skypeTest(str) {
+    var re = /^([a-z0-9-_])+$/;
+    return re.test(str);
+}
+
+
+
+//cookies
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+
+function showInfo(data) {
+  $("#errorInfo").html(data);
+    setTimeout(function() {
+    $("#errorInfo").html("");
+  },3000);
+}
+
+</script>
+
+</body>
+</html>

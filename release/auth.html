@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blur Admin</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+
+  <link rel="stylesheet" href="styles/vendor-dddc8eebb5.css">
+
+  <link rel="stylesheet" href="styles/auth-e6695cfd9b.css">
+</head>
+<body>
+<main class="auth-main">
+  <div class="auth-block">
+    <h1>Sign in to Gem4Me</h1>
+    <a href="reg.html" class="auth-link">New in Gem4Me? Sign up!</a>
+
+    <form class="form-horizontal" id="formAuth" onsubmit="return false;">
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username</label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="username" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default btn-auth" id="btnAuth">Sign in</button>
+          <a href="/resetPassword.html" class="forgot-pass">Forgot password?</a>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <span id="errorInfo"></span>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</main>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+var token = getCookie("token");
+
+if( token != "" && token != undefined && token != null && token != NaN ) {
+  //есть уже сохраненная сессия авторизации
+  // переходим на главную
+  window.location.href = "/profile.html";
+
+}
+
+
+$("#formAuth").on("submit", function(){
+
+  var username = $("#username").val();
+  var password = $("#password").val();
+
+  // to lower case
+  username = username.toLowerCase();
+  password = password.toLowerCase();
+
+  // make for disabled
+  var form = document.getElementById("formAuth");
+  var elements = form.elements;
+  for (var i = 0, len = elements.length; i < len; ++i) {
+      elements[i].readOnly = true;
+  }
+  $("#btnAuth").attr("disabled","");
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://207.154.204.86/auth/?username="+username+"&password="+password,
+    "method": "GET",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "processData": false
+  }
+
+  $.ajax(settings).done(function (response, textStatus, xhr) {
+    console.log(response, xhr);
+    //success
+    if(xhr.status == 200) {
+      //сохраняем токен
+      setCookie("token", response.token);
+      window.location.href = "/profile.html";
+      return;
+    }
+  })
+
+  .fail(function(xhr, textStatus, errInfo) {
+    if(xhr.status == 400) {
+      showInfo("Params error");
+      return;
+    }
+    if(xhr.status == 401) {
+      showInfo("Wrong password");
+      return;
+    }
+
+    if(xhr.status == 404) {
+      showInfo("User not found");
+      return;
+    }
+    if(xhr.status == 409) {
+      showInfo("User already exists");
+      return;
+    }
+
+    if(xhr.status == 500) {
+      showInfo("Server error");
+      return;
+    }
+  })
+
+  .always(function(){
+    // make enabled
+      var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+          elements[i].readOnly = false;
+        }
+      $("#btnAuth").removeAttr("disabled","");
+  })
+  ;
+
+});
+
+//cookies
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+
+function showInfo(data) {
+  $("#errorInfo").html(data);
+    setTimeout(function() {
+    $("#errorInfo").html("");
+  },3000);
+}
+
+</script>
+
+</body>
+</html>
