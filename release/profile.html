@@ -358,7 +358,9 @@ if( token == "" || token == undefined || token == null || token == NaN ) {
 
       $("input[name=showName][value=" + response.settings.showName + "]").attr('checked', 'checked');
 
-      $("input[name=deliveryEMail][value=" + response.settings.deliveryEMail + "]").attr('checked', 'checked');
+      console.log("response.settings.deliveryEMail", response.settings);
+      // $("input[name=deliveryEMail][value=" + response.settings.deliveryEMail + "]").attr('checked', 'checked');
+      $("input[name=deliveryEMail][value=" + response.settings.deliveryEmail + "]").attr('checked', 'checked');
 
       $("input[name=deliverySMS][value=" + response.settings.deliverySMS + "]").attr('checked', 'checked');
 
